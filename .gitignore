@@ -1,0 +1,4 @@
+postgres-data/
+src/
+apache/
+.DS_store
