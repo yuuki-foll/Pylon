@@ -17,3 +17,24 @@ PostgreSQL
 ```
 $docker-compse up -d --build
 ```
+
+## user認証機能追加のためにLaravel Breezeをインストール
+
+- Todo
+  - もしかしたらDockerFile書き直したら自動で入れれれるかもしれない
+
+```
+$composer install
+```
+### npmが必要なのでインストール
+
+```
+$apt update
+$apt install nodejs npm
+```
+- nodeのversionが低いと正しく動かないので注意！
+
+- 以下のコマンドでプロジェクトをビルドする
+```
+$npm run dev
+```
