@@ -18,7 +18,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/filelist', [FiledataController::class, 'index']);
+Route::get('/filelist', [FiledataController::class, 'getFileList']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
