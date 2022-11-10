@@ -10,9 +10,10 @@ class Filedata extends Model
     use HasFactory;
 
     protected $table = 'filedatas';
-    protected $fillable = 
+    protected $fillable =
     [
         'filename',
-        'text'
+        'text',
+        'user_id'
     ];
 }
