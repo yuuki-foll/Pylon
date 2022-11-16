@@ -16,6 +16,8 @@ PostgreSQL
 
 ```
 $docker-compse up -d --build
+$docker-compose exec php-apache /bin/bash
+$composer install
 ```
 
 ## user認証機能追加のためにLaravel Breezeをインストール
@@ -38,3 +40,17 @@ $apt install nodejs npm
 ```
 $npm run dev
 ```
+
+### コード整形ツール
+
+1. まずphpcsでコーディング違反の検出を行う
+```
+$./vendor/bin/phpcs 書いたphpファイルのpath(./appから)
+```
+
+2. 次にphp cs fixerで自動で整形してもらう
+```
+./vendor/bin/php-cs-fixer  fix -v --diff ./vendor/bin/php-cs-fixer  fix -v --diff ./app/Models/Filedata.php
+```
+
+3. 再度phpcsで正しく修正したか確認
