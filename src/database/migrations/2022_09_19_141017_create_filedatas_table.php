@@ -14,14 +14,17 @@ return new class extends Migration
     public function up()
     {
         if (!Schema::hasTable('filedatas')) {
-            Schema::create('filedatas', function (Blueprint $table) {
-                $table->id();
-                $table->string('file_name', 100);
-                $table->text('text');
-                $table->integer('user_id');
-                $table->foreign('user_id')->references('id')->on('users');
-                $table->timestamps();
-            });
+            Schema::create(
+                'filedatas', 
+                function (Blueprint $table) {
+                    $table->id();
+                    $table->string('file_name', 100);
+                    $table->text('text');
+                    $table->integer('user_id');
+                    $table->foreign('user_id')->references('id')->on('users');
+                    $table->timestamps();
+                }
+            );
         }
     }
 
