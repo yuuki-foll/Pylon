@@ -18,3 +18,6 @@ RUN docker-php-ext-install \
 WORKDIR /var/www/laravel_docker
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - && \
+    apt-get install -y nodejs
+RUN npm install npm@latest -g
