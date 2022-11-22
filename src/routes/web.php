@@ -21,7 +21,7 @@ Route::get(
     }
 );
 
-Route::get('/filelist', [FiledataController::class, 'index']);
+Route::get('/filelist', [FiledataController::class, 'getFileList']);
 
 Route::get('/makefile', [FiledataController::class, 'make']);
 Route::post('/makefile', [FiledataController::class, 'make']);

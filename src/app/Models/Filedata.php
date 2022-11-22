@@ -10,6 +10,8 @@ class Filedata extends Model
     use HasFactory;
 
     protected $table = 'filedatas';
+    protected $primaryKey = 'id';
+
     protected $fillable =
     [
         'filename',
