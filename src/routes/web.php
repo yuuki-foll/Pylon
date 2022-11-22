@@ -14,14 +14,25 @@ use App\Http\Controllers\FiledataController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get(
+    '/',
+    function () {
+        return view('welcome');
+    }
+);
 
 Route::get('/filelist', [FiledataController::class, 'index']);
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+Route::get('/makefile', [FiledataController::class, 'make']);
+Route::post('/makefile', [FiledataController::class, 'make']);
+
+Route::post('/regist', [FiledataController::class, 'regist'])->name('regist');
+
+Route::get(
+    '/dashboard',
+    function () {
+        return view('dashboard');
+    }
+)->middleware(['auth'])->name('dashboard');
 
 require __DIR__ . '/auth.php';
