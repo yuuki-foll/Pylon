@@ -13,7 +13,7 @@
   ファイルID: {{ $filedata->id }} <br>
   ファイル名: {{ $filedata->file_name }} <br>
   内容: {{ $filedata->text }} <br>
-  作者ID: {{ $filedata->user_id }} <br>
+  作者ID: {{ $filedata->user_id }} <br><br>
   @endforeach
 </body>
 
