@@ -21,6 +21,13 @@ Route::get(
     }
 );
 
+Route::get(
+    '/pylon',
+    function () {
+        return view('main_page');
+    }
+);
+
 Route::get('/filelist', [FiledataController::class, 'getFileList']);
 
 Route::get('/makefile', [FiledataController::class, 'edit_make_file']);
