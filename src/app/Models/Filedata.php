@@ -14,7 +14,7 @@ class Filedata extends Model
 
     protected $fillable =
     [
-        'filename',
+        'file_name',
         'text',
         'user_id'
     ];

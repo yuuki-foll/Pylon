@@ -15,7 +15,7 @@ use App\Http\Controllers\FiledataController;
 */
 
 Route::get(
-    '/', 
+    '/',
     function () {
         return view('welcome');
     }
@@ -23,8 +23,12 @@ Route::get(
 
 Route::get('/filelist', [FiledataController::class, 'getFileList']);
 
+Route::get('/makefile', [FiledataController::class, 'edit_make_file']);
+
+Route::post('/makefile', [FiledataController::class, 'save'])->name('save');
+
 Route::get(
-    '/dashboard', 
+    '/dashboard',
     function () {
         return view('dashboard');
     }
