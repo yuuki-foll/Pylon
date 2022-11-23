@@ -19,6 +19,7 @@ services:
       context: ./
     ports:
       - '8080:80'
+      - '5173:5173'
     volumes:
       - ./src:/var/www/laravel_docker
       - ./default.conf:/etc/apache2/sites-enabled/000-default.conf
