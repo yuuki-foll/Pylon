@@ -23,10 +23,9 @@ Route::get(
 
 Route::get('/filelist', [FiledataController::class, 'getFileList']);
 
-Route::get('/makefile', [FiledataController::class, 'make']);
-Route::post('/makefile', [FiledataController::class, 'make']);
+Route::get('/makefile', [FiledataController::class, 'edit_make_file']);
 
-Route::post('/regist', [FiledataController::class, 'regist'])->name('regist');
+Route::post('/makefile', [FiledataController::class, 'save'])->name('save');
 
 Route::get(
     '/dashboard',

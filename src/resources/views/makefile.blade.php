@@ -6,9 +6,13 @@
 </header>
 
 <body>
-  <form method="POST" action="{{ route('regist')}}" autocomplete="off">
+  <form method="POST" action="{{route('save')}}" autocomplete="off">
     @csrf
     ファイル名：<input name="file_name" type="text">
+
+    @if($errors->has('file_name'))
+      <p>{{$errors->first('file_name')}}</p>
+    @endif
 
     <br> <br>
 

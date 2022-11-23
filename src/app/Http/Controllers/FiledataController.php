@@ -13,25 +13,26 @@ class FiledataController extends Controller
         return view('filedata', compact('filedatas'));
     }
 
-    public function make()
+    public function edit_make_file()
     {
         return view('makefile');
     }
 
-    public function regist(Request $request)
+    public function save(Request $request)
     {
         $request->validate(
             [
                 'file_name' => 'required',
-                'text' => 'required',
             ]
         );
 
-        $newfile = new Filedata();
-        $newfile->file_name = $request->file_name;
-        $newfile->text = $request->text;
-        $newfile->user_id = 1;
-        $newfile->save();
+        Filedata::create(
+            [
+                'file_name' => $request->file_name,
+                'text'      => $request->text,
+                'user_id'   => 1,
+            ]
+        );
         return redirect('/filelist');
     }
 }
