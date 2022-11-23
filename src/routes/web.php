@@ -15,7 +15,7 @@ use App\Http\Controllers\FiledataController;
 */
 
 Route::get(
-    '/', 
+    '/',
     function () {
         return view('welcome');
     }
@@ -31,7 +31,7 @@ Route::get(
 Route::get('/filelist', [FiledataController::class, 'getFileList']);
 
 Route::get(
-    '/dashboard', 
+    '/dashboard',
     function () {
         return view('dashboard');
     }
