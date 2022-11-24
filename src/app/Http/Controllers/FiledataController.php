@@ -28,11 +28,12 @@ class FiledataController extends Controller
             ]
         );
 
+        $id = Auth::id();
         Filedata::create(
             [
                 'file_name' => $request->file_name,
                 'text'      => $request->text,
-                'user_id'   => 1,
+                'user_id'   => $id,
             ]
         );
         return redirect('/filelist');
