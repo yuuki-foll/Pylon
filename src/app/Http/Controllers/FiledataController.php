@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Filedata;
+use Illuminate\Support\Facades\Auth;
 
 class FiledataController extends Controller
 {
     public function getFileList()
     {
-        $filedatas = Filedata::all();
+        $id = Auth::id();
+        $filedatas = Filedata::all()->where('user_id', $id);
         return view('filedata', compact('filedatas'));
     }
 
