@@ -10,8 +10,7 @@ class FiledataController extends Controller
 {
     public function getFileList()
     {
-        $id = Auth::id();
-        $filedatas = Filedata::all()->where('user_id', $id);
+        $filedatas = Filedata::all()->where('user_id', Auth::id());
         return view('filedata', compact('filedatas'));
     }
 
@@ -28,12 +27,11 @@ class FiledataController extends Controller
             ]
         );
 
-        $id = Auth::id();
         Filedata::create(
             [
                 'file_name' => $request->file_name,
                 'text'      => $request->text,
-                'user_id'   => $id,
+                'user_id'   => Auth::id(),
             ]
         );
         return redirect('/filelist');
