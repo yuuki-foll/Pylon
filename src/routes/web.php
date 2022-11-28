@@ -26,7 +26,7 @@ Route::get(
     function () {
         return view('main_page');
     }
-);
+)->name('main_page');
 
 Route::get('/filelist', [FiledataController::class, 'getFileList']);
 
