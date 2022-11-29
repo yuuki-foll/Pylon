@@ -1,20 +1,19 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-  <meta charset="UTF-8">
-  <title>Pylon</title>
-</head>
-
-<body>
-  ファイル一覧 <br><br>
-
-  @foreach($filedatas as $filedata)
-  ファイルID: {{ $filedata->id }} <br>
-  ファイル名: {{ $filedata->file_name }} <br>
-  内容: {{ $filedata->text }} <br>
-  作者ID: {{ $filedata->user_id }} <br><br>
-  @endforeach
-</body>
-
-</html>
+<x-pylon_template>
+  <x-slot name="header"></x-slot>
+  <x-slot name="slot">
+    <table width=90% class="mx-10 my-5">
+      <tr>
+        <th>ファイル名</th>
+        <th>オーナー</th>
+        <th>更新日時</th>
+      </tr>
+      @foreach($filedatas as $filedata)
+      <tr>
+        <th>{{ $filedata->file_name }}</th>
+        <th>名無し</th>
+        <th>{{ $filedata->created_at }}</th>
+      </tr>
+      @endforeach
+    </table>
+  </x-slot>
+</x-pylon_template>
