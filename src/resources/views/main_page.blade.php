@@ -6,5 +6,15 @@
                 Pylon
             </div>
         </div>
+        <div class="absolute top-3/4  w-screen">        
+            <div class="flex justify-center text-center">
+                <div class="m-5">            
+                    <a href="{{route('makeFile')}}" class="inline-block w-56 text-xl text-white bg-gray-800 px-7 hover:bg-gray-700 rounded-xl" style="font-family: 'Noto Sans JP', sans-serif;">ファイル作成</a>
+                </div>
+                <div class="m-5">
+                    <a href="{{route('fileList')}}" class="inline-block w-56 text-xl text-white bg-gray-800 px-7 hover:bg-gray-700 rounded-xl" style="font-family: 'Noto Sans JP', sans-serif;">ファイル一覧表示</a>
+                </div>
+            </div>
+        </div>
     </x-slot>
 </x-pylon_template>

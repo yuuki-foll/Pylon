@@ -28,9 +28,11 @@ Route::get(
     }
 )->name('main_page');
 
-Route::get('/filelist', [FiledataController::class, 'getFileList']);
+Route::get('/filelist', [FiledataController::class, 'getFileList'])
+    ->middleware(['auth'])->name('fileList');
 
-Route::get('/makefile', [FiledataController::class, 'edit_make_file']);
+Route::get('/makefile', [FiledataController::class, 'edit_make_file'])
+    ->middleware(['auth'])->name('makeFile');
 
 Route::post('/makefile', [FiledataController::class, 'save'])->name('save');
 
