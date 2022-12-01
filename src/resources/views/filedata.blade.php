@@ -3,15 +3,19 @@
   <x-slot name="slot">
     <table width=90% class="mx-10 my-5">
       <tr>
-        <th>ファイル名</th>
+        <th align="left">ファイル名</th>
         <th>オーナー</th>
-        <th>更新日時</th>
+        <th>更新日時
+          <button type="button" onclick="" class="text-black">↓</button>
+        </th>
+        <th>最終更新者</th>
       </tr>
       @foreach($filedatas as $filedata)
       <tr>
-        <th>{{ $filedata->file_name }}</th>
-        <th>名無し</th>
-        <th>{{ $filedata->created_at }}</th>
+        <td>{{ $filedata->file_name }}</td>
+        <td align="center">名無し</td>
+        <td align="center">{{ $filedata->created_at }}</td>
+        <td align="center">名無し</td>
       </tr>
       @endforeach
     </table>
