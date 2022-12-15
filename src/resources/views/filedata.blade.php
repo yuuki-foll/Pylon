@@ -12,7 +12,7 @@
       </tr>
       @foreach($filedatas as $filedata)
       <tr>
-        <td>{{ $filedata->file_name }}</td>
+        <td>{{ Str::limit($filedata->file_name,10) }}</td>
         <td align="center">名無し</td>
         <td align="center">{{ $filedata->created_at }}</td>
         <td align="center">名無し</td>
