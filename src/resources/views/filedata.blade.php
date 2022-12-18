@@ -3,10 +3,17 @@
   <x-slot name="slot">
     <table width=90% class="mx-10 my-5">
       <tr>
-        <th align="left">ファイル名</th>
+        <th align="left">
+          ファイル名
+          <form class="inline-block"action="{{ route('fileList') }}">
+            <button type="submit" name="sort" class="text-black" value="">↓</button>
+          </form>
+        </th>
         <th>オーナー</th>
         <th>更新日時
-          <button type="button" onclick="" class="text-black">↓</button>
+          <form class="inline-block" action="{{ route('fileList') }}">
+            <button type="submit" name="sort" class="text-black" value="{{ serialize(true) }}">↓</button>
+          </form>
         </th>
         <th>最終更新者</th>
       </tr>
@@ -14,7 +21,7 @@
       <tr>
         <td>{{ Str::limit($filedata->file_name,10) }}</td>
         <td align="center">名無し</td>
-        <td align="center">{{ $filedata->created_at }}</td>
+        <td align="center">{{ $filedata->updated_at }}</td>
         <td align="center">名無し</td>
       </tr>
       @endforeach
