@@ -43,7 +43,7 @@ $./vendor/bin/phpcs 書いたphpファイルのpath(./appから)
 
 2. 次にphp cs fixerで自動で整形してもらう
 ```
-./vendor/bin/php-cs-fixer  fix -v --diff ./vendor/bin/php-cs-fixer  fix -v --diff ./app/Models/Filedata.php
+./vendor/bin/php-cs-fixer  fix -v --diff 書いたファイルのpath(./app/から)
 ```
 
 3. 再度phpcsで正しく修正したか確認
