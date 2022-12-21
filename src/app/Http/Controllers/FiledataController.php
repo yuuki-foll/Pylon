@@ -8,9 +8,19 @@ use Illuminate\Support\Facades\Auth;
 
 class FiledataController extends Controller
 {
-    public function getFileList()
+    public function getFileList(Request $request)
     {
-        $filedatas = Filedata::all()->where('user_id', Auth::id());
+        $isDatetimeSort = unserialize($request->get('sort'));
+        
+        if ($isDatetimeSort) {
+            $filedatas = Filedata::where('user_id', Auth::id())
+                ->orderBy('updated_at', 'asc')
+                ->get();
+        } else {
+            $filedatas = Filedata::where('user_id', Auth::id())
+                ->orderBy('file_name', 'asc')
+                ->get();
+        }
         return view('filedata', compact('filedatas'));
     }
 
