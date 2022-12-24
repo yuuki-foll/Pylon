@@ -26,10 +26,10 @@ class FiledataController extends Controller
 
     public function editMakeFile(Request $request)
     {
-        $isUserId = $request->input('user_id');
-        $isId = $request->input('id');
-        if ($isUserId) {
-            $filedata = Filedata::where('id', $isId)->first();
+        $UserId = $request->input('user_id');
+        $Id = (int)$request->input('id');
+        if (isset($Id)) {
+            $filedata = Filedata::where('id', $Id)->first();
             return view('makefile', compact('filedata'));
         } else {
             return view('makefile');
@@ -44,8 +44,8 @@ class FiledataController extends Controller
             ]
         );
         if ($request->has('file_id')) {
-            $isId = $request->file_id;
-            $data = Filedata::where('id', $isId)->first();
+            $Id = (int)$request->file_id;
+            $data = Filedata::where('id', $Id)->first();
             $data->file_name = $request->file_name;
             $data->text = $request->text;
             $data->save();
