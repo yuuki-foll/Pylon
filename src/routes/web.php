@@ -34,10 +34,10 @@ Route::get(
 )->name('main_page');
 
 Route::get('/filelist', [FiledataController::class, 'getFileList'])
-    ->middleware(['auth'])->name('fileList');
+    ->middleware(['auth', 'verified'])->name('fileList');
 
 Route::get('/makefile', [FiledataController::class, 'edit_make_file'])
-    ->middleware(['auth'])->name('makeFile');
+    ->middleware(['auth', 'verified'])->name('makeFile');
 
 Route::post('/makefile', [FiledataController::class, 'save'])->name('save');
 
