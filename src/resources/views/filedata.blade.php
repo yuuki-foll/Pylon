@@ -5,7 +5,7 @@
       <tr>
         <th align="left">
           ファイル名
-          <form class="inline-block"action="{{ route('fileList') }}">
+          <form class="inline-block" action="{{ route('fileList') }}">
             <button type="submit" name="sort" class="text-black" value="">↓</button>
           </form>
         </th>
@@ -19,7 +19,7 @@
       </tr>
       @foreach($filedatas as $filedata)
       <tr>
-        <td>{{ Str::limit($filedata->file_name,10) }}</td>
+        <td><a href="{{ route('makeFile',['user_id'=>$filedata->user_id,'id'=>$filedata->id]) }}">{{ Str::limit($filedata->file_name,10) }}</a></td>
         <td align="center">名無し</td>
         <td align="center">{{ $filedata->updated_at }}</td>
         <td align="center">名無し</td>
