@@ -39,7 +39,6 @@ class FiledataController extends Controller
                 ['user_id', '=', $userId]
             ]
         )->first();
-        dd($filedata);
         return view('makefile', compact('filedata'));
     }
 
