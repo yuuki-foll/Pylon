@@ -18,7 +18,7 @@
         <th>最終更新者</th>
       </tr>
       @foreach($filedatas as $filedata)
-      <tr>
+      <tr class="hover:bg-gray-300">
         <td><a href="{{ route('makeFile',['user_id'=>$filedata->user_id,'id'=>$filedata->id]) }}">{{ Str::limit($filedata->file_name,10) }}</a></td>
         <td align="center">名無し</td>
         <td align="center">{{ $filedata->updated_at }}</td>
