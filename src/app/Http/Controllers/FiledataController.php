@@ -31,9 +31,15 @@ class FiledataController extends Controller
 
     public function updateMakeFile(Request $request)
     {
-        $UserId = $request->input('userIid');
-        $Id = (int)$request->input('fileId');
-        $filedata = Filedata::where('id', $Id)->first();
+        $userId = (int)$request->input('userId');
+        $id = (int)$request->input('fileId');
+        $filedata = Filedata::where(
+            [
+                ['id', '=', $id],
+                ['user_id', '=', $userId]
+            ]
+        )->first();
+        dd($filedata);
         return view('makefile', compact('filedata'));
     }
 
@@ -45,8 +51,14 @@ class FiledataController extends Controller
             ]
         );
         if ($request->has('file_id')) {
-            $Id = (int)$request->file_id;
-            $data = Filedata::where('id', $Id)->first();
+            $id = (int)$request->file_id;
+            $userId = (int)$request->input('userId');
+            $data = Filedata::where(
+                [
+                    ['id', '=', $id],
+                    ['user_id', '=', $userId]
+                ]
+            )->first();
             $data->file_name = $request->file_name;
             $data->text = $request->text;
             $data->save();
