@@ -29,7 +29,7 @@ class FiledataController extends Controller
         return view('makefile');
     }
 
-    public function updateMakeFile(Request $request)
+    public function updateFile(Request $request)
     {
         $userId = (int)$request->input('userId');
         $id = (int)$request->input('fileId');
@@ -50,14 +50,15 @@ class FiledataController extends Controller
             ]
         );
         if ($request->has('file_id')) {
-            $id = (int)$request->file_id;
-            $userId = (int)$request->input('userId');
+            $id = (int)$request->input('file_id');
+            $userId = Auth::id();
             $data = Filedata::where(
                 [
                     ['id', '=', $id],
                     ['user_id', '=', $userId]
                 ]
             )->first();
+
             $data->file_name = $request->file_name;
             $data->text = $request->text;
             $data->save();

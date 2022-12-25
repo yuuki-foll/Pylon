@@ -33,7 +33,6 @@
     </form>
     <script language="javascript">
       function pageDatailSubmit(id, user_id) {
-        console.log("push!!");
         document.pageDatail.fileId.value = id;
         document.pageDatail.userId.value = user_id;
         document.pageDatail.submit();
