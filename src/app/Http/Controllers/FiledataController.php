@@ -29,16 +29,19 @@ class FiledataController extends Controller
         return view('makefile');
     }
 
-    public function updateFile(Request $request)
+    public function updateFile($id)
     {
-        $userId = (int)$request->input('userId');
-        $id = (int)$request->input('fileId');
+        $userId = Auth::id();
         $filedata = Filedata::where(
             [
-                ['id', '=', $id],
-                ['user_id', '=', $userId]
+                'id' => $id,
+                'user_id' => $userId
             ]
         )->first();
+
+        if (empty($filedata)) {
+            return 'ページを表示できません。';
+        }
         return view('makefile', compact('filedata'));
     }
 
