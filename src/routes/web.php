@@ -41,6 +41,8 @@ Route::get('/makefile', [FiledataController::class, 'editMakeFile'])
 
 Route::post('/makefile', [FiledataController::class, 'save'])->name('save');
 
+Route::post('/updatefile', [FiledataController::class, 'updateMakeFile'])->name('editFile');
+
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

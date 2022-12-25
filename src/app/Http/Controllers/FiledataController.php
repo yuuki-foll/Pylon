@@ -24,16 +24,17 @@ class FiledataController extends Controller
         return view('filedata', compact('filedatas'));
     }
 
-    public function editMakeFile(Request $request)
+    public function editMakeFile()
     {
-        $UserId = $request->input('user_id');
-        $Id = (int)$request->input('id');
-        if (isset($Id)) {
-            $filedata = Filedata::where('id', $Id)->first();
-            return view('makefile', compact('filedata'));
-        } else {
-            return view('makefile');
-        }
+        return view('makefile');
+    }
+
+    public function updateMakeFile(Request $request)
+    {
+        $UserId = $request->input('userIid');
+        $Id = (int)$request->input('fileId');
+        $filedata = Filedata::where('id', $Id)->first();
+        return view('makefile', compact('filedata'));
     }
 
     public function save(Request $request)
