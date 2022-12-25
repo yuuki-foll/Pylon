@@ -36,10 +36,12 @@ Route::get(
 Route::get('/filelist', [FiledataController::class, 'getFileList'])
     ->middleware(['auth', 'verified'])->name('fileList');
 
-Route::get('/makefile', [FiledataController::class, 'edit_make_file'])
+Route::get('/makefile', [FiledataController::class, 'editMakeFile'])
     ->middleware(['auth', 'verified'])->name('makeFile');
 
 Route::post('/makefile', [FiledataController::class, 'save'])->name('save');
+
+Route::post('/updatefile', [FiledataController::class, 'updateFile'])->name('editFile');
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');

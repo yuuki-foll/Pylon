@@ -11,7 +11,7 @@ class FiledataController extends Controller
     public function getFileList(Request $request)
     {
         $isDatetimeSort = unserialize($request->get('sort'));
-        
+
         if ($isDatetimeSort) {
             $filedatas = Filedata::where('user_id', Auth::id())
                 ->orderBy('updated_at', 'asc')
@@ -24,9 +24,22 @@ class FiledataController extends Controller
         return view('filedata', compact('filedatas'));
     }
 
-    public function edit_make_file()
+    public function editMakeFile()
     {
         return view('makefile');
+    }
+
+    public function updateFile(Request $request)
+    {
+        $userId = (int)$request->input('userId');
+        $id = (int)$request->input('fileId');
+        $filedata = Filedata::where(
+            [
+                ['id', '=', $id],
+                ['user_id', '=', $userId]
+            ]
+        )->first();
+        return view('makefile', compact('filedata'));
     }
 
     public function save(Request $request)
@@ -36,14 +49,28 @@ class FiledataController extends Controller
                 'file_name' => 'required',
             ]
         );
+        if ($request->has('file_id')) {
+            $id = (int)$request->input('file_id');
+            $userId = Auth::id();
+            $data = Filedata::where(
+                [
+                    ['id', '=', $id],
+                    ['user_id', '=', $userId]
+                ]
+            )->first();
 
-        Filedata::create(
-            [
-                'file_name' => $request->file_name,
-                'text'      => $request->text,
-                'user_id'   => Auth::id(),
-            ]
-        );
+            $data->file_name = $request->file_name;
+            $data->text = $request->text;
+            $data->save();
+        } else {
+            Filedata::create(
+                [
+                    'file_name' => $request->file_name,
+                    'text'      => $request->text,
+                    'user_id'   => Auth::id(),
+                ]
+            );
+        }
         return redirect('/filelist');
     }
 }
